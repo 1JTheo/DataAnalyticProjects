@@ -88,28 +88,3 @@ Data_file_Proper_formated= Data_file_Merged.drop(['ClientKeywords', 'Day', 'Year
 
 #Export New data for Tableu use
 Data_file_Proper_formated.to_csv('valueInc_Cleaned.csv', index = False)
-
-
-
-
-
-
-'''
-############################################################################################################################
-# Just for display at the Variable exlorer
-TotalCostPerItem= Data_file_Proper['CostPerItem']*Data_file_Proper['NumberOfItemsPurchased']
-TotalSellingPricePerItem = Data_file_Proper['SellingPricePerItem'] * Data_file_Proper['NumberOfItemsPurchased']
-ProfitPerTransaction = Data_file_Proper['TotalSellingPricePerItem'] - Data_file_Proper['TotalCostPerItem']
-ProfitMarkUp= round((Data_file_Proper['ProfitPerTransaction'] / Data_file_Proper['TotalCostPerItem']), 2)
-DateInFull = Data_file_Proper['Day'].astype(str)+' - '+Data_file_Proper['Month']+' - ' + Data_file_Proper['Year'].astype(str)
-
-#Summary of the data
-Data_file_Proper.info()
-Data_file_Merged.info()
-
-#Using iloc[] and head[] to view specific columns/rows
-Data_file_Proper.iloc[:,-1] #bring in 
-Data_file_Proper.head(-2) # bring in last 2 row
-
-Data_file_Proper.iloc[2,1] #bring in 4 row second column
-'''
