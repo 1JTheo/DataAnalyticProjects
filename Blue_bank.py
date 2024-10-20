@@ -13,27 +13,12 @@ Created on Sun Aug 18 17:03:47 2024
 """
 # PROJECT 2
 """
-Project 1: Sales Analysis for Value Inc
+Project 2: Blue Bank Loan Analysis
 
-Value Inc is a retail store that sells household items all over the world by bulk. 
-
-The Sales Manager has no sales reporting but he has a brief idea of current sales but doesn’t have any reporting system to help him make decisions.
-
-He also has no idea of the ---> monthly cost <---- , ---> profit <--- and ---> top selling products <--- . He wants a dashboard on this and says the data is currently stored in an excel sheet.
-
-
-GUIDE TO SOLUTION
-
-1. Data Cleaning
-2. Data transforming
-3. Cal monthly cost and adding it to the table
-4.Data exporting
+Blue Bank is a bank in USA that has a loan department which is currently understaffed. They supply loans to individuals and don’t have much reporting on how risky these 
+borrowers are.  Using Python and Tableau, they’d like to see a report of borrowers who may have issues paying back the loan.
 
 """
-
-#1 Bring the data into my workspace or script 
-# I need functions from the Data analysis LIBRARY call
-
 import json
 import pandas as pd
 import numpy as np
