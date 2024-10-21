@@ -31,27 +31,6 @@ data.groupby(['source_id'])['engagement_reaction_count'].sum()
 
 data2 = data.drop('engagement_comment_plugin_count', axis = 1)
 
-'''
-Keyword = 'crash'
-
-#creating a loop to isolate each title row and pick certain words from it
-
-Keyword_flag = []
-
-for x in range(0,len(data2)):
-    heading = data2['title'][x]
-    try:
-        if Keyword in heading:
-            flag = 1
-        else:
-            flag = 0
-    except:
-        flag = 0
-    Keyword_flag.append(flag)
-'''   
-
-#transfermong that device above to a calculator machine called FUNCTION
-
 def KeyWordPicker(keyword):
     
     Keyword_flag = []
