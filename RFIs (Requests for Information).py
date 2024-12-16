@@ -18,7 +18,6 @@ python
 
 import pandas as pd
 import matplotlib.pyplot as plt
-import seaborn as sns
 
 data = pd.read_excel('DataSpecialistInFinCrimeOperationsFile2_2Rawdata.xlsx')
 #print(data.info())  # Inspect data structure and types
@@ -26,7 +25,6 @@ data = pd.read_excel('DataSpecialistInFinCrimeOperationsFile2_2Rawdata.xlsx')
 
 '''
 I identified the key columns of interest, such as `RFI THEME`, `PARTNER BANK`, `TRANSFER STATUS`, and `PREVIOUS SUSPENSIONS`, `RFI ENTITY`,  and checked for missing or inconsistent values. The dataset was generally well-structured, requiring minimal/no cleaning.
-
 '''
 
 ### Step 2: Analysis of Trends
@@ -36,17 +34,16 @@ I identified the key columns of interest, such as `RFI THEME`, `PARTNER BANK`, `
 Using Python, I analyzed the frequency of RFIs based on their themes (e.g., sanctions, AML/CTF concerns). This helped highlight which issues were most prevalent.
 '''
 rfi_counts = data['RFI Theme'].value_counts()
-rfi_counts.plot(kind='bar', title='Frequency of RFI Themes')
+rfi_counts.plot(kind='bar', title='Frequency of RFI By Theme')
 plt.xlabel('RFI Theme')
-plt.ylabel('Count')
+plt.ylabel('RFI')
 plt.show()
 '''
-Result: AML/CTF concerns accounted for the majority of RFIs, suggesting a focus area for further investigation.
-Result: AML/CTF concerns accounted for 65% of RFIs, while sanctions-related RFIs made up the remaining 35%. This indicates that the majority of RFIs stem from AML/CTF investigations.
+Result: AML/CTF and sanctions are distributed evenly accross all board. However, sanctions accounts for 56.97% of RFIs, while AML/CTF RFIs made up the remaining 43.2135% if account status-(Active) is considered, suggesting a focus area for further investigation.
 '''
 
 '''
-2. Partner Banks Generating RFIs:**
+2. Partner Banks Generating RFIs:
 I grouped data by `PARTNER BANK` to understand which banks submitted the highest number of RFIs.
 '''
 partner_rfi = data.groupby('Partner bank')['Transaction ID'].count()
@@ -54,15 +51,19 @@ partner_rfi.plot(kind='bar', title='RFIs by Partner Bank')
 plt.xlabel('Partner Bank')
 plt.ylabel('Number of RFIs')
 plt.show()
+
+partner_rfi = data.groupby('Partner bank')['Transaction ID'].count()
+partner_rfi.plot(kind='pie', autopct='%1.1f%%', title='RFIs by Partner Bank')
+plt.show()
 '''
-Result: A few banks consistently submitted the majority of RFIs, warranting a deeper dive into their transaction patterns.
+Result: This result into bank A and B responsible for 67.901% Overall RFIs reports/suspension and 66% of suspension considering (active accounts), warranting a deeper dive into their transaction patterns.
 '''
 
 '''
 3. Impact of Previous Suspensions:**
 I analyzed accounts with a history of suspensions to determine whether they were more likely to be flagged.
 '''
-previous_suspensions = data['Previous Suspensions '].value_counts()
+previous_suspensions = data['Previous Suspensions'].value_counts()
 print(previous_suspensions)
 '''
 Result: Accounts previously suspended showed a significantly higher likelihood of receiving new RFIs, emphasizing the need for enhanced monitoring.
