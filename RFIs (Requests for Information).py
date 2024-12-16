@@ -82,8 +82,8 @@ plt.legend(title='Current Transfer Status', loc='upper right')
 plt.show()
 
 '''
-Key Trends Identified:
-Indicates/Confirms accounts with prior suspensions were 78.26% more likely to receive new RFIs overall and 94.12% more likely to receive new RFIs when considering (active accounts alone), highlighting the importance of monitoring repeat offenders.
+Key Trends Identified: Accounts with prior suspensions are at higher risk of further investigation.
+In the chart above, accounts with prior suspensions were 78.26% more likely to receive new RFIs overall and 94.12% more likely to receive new RFIs when considering (active accounts alone), highlighting the importance of monitoring repeat offenders.
 '''
 
 '''
@@ -128,15 +128,15 @@ Indicates Business accounts were involved in 59.26% of RFIs, compared to 40.74% 
 '''
 
 '''
-7. Account Type Trends:
+7. Account Entity Trends:
 Investigated differences in RFIs between business and personal accounts.
 '''
-account_type_rfi = data.groupby('Account type')['Transaction ID'].count()
-account_type_rfi.plot(kind='pie', autopct='%1.1f%%', title='RFIs by Account Type')
+account_Entity_rfi = data.groupby('RFI entity')['Transaction ID'].count()
+account_Entity_rfi.plot(kind='pie', autopct='%1.1f%%', title='RFIs by RFI Entity')
 plt.show()
 '''
 Key Trends Identified:
-Indicates Business accounts were involved in 59.26% of RFIs, compared to 40.74% Personal account. This suggests higher scrutiny for business accounts
+Indicates Recipient were involved in 56.79% of RFIs, compared to 43.21% Wise customer. This suggests higher scrutiny for Recipients
 '''
 
 '''
@@ -155,7 +155,8 @@ plt.ylabel('Average Transaction Amount (USD)')
 plt.show()
 
 '''
-Result: Suspended transactions tended to involve higher amounts, which could indicate a correlation between transaction size and risk.
+Key Trends Identified: Larger transaction amounts are more likely to be suspended.
+In the chart above, suspended transactions considering on Active account tended to involve higher amounts, which could indicate a correlation between transaction size and risk.
 '''
 ########################################################################################################################
 
@@ -181,7 +182,6 @@ Key Trends Identified:
 1. RFI concerns (AML/CTF and Sanction concerns are the most common RFI theme.
 2. A small number of partner banks account for the majority of RFIs.
 3. Larger transaction amounts are more likely to be suspended.
-4. Accounts with prior suspensions are at higher risk of further investigation.
 
 Suggested Next Steps:
 1. Engage with partner banks submitting the most RFIs to understand their concerns and improve processes.
