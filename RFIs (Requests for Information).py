@@ -81,14 +81,13 @@ plt.ylabel('Number of Accounts')
 plt.legend(title='Current Transfer Status', loc='upper right')
 plt.show()
 
-
 '''
 Result: Accounts with prior suspensions were 78.26% more likely to receive new RFIs overall and 94.12% considering (active accounts), highlighting the importance of monitoring repeat offenders.
 '''
 
 '''
-4. Geographic Patterns:
-Analyzed RFIs by CUSTOMER ADDRESS COUNTRY and RECIPIENT COUNTRY to identify regions with higher scrutiny.
+4. Geographic Patterns - CUSTOMER ADDRESS COUNTRY:
+Analyzed RFIs by CUSTOMER ADDRESS COUNTRY to identify regions with higher scrutiny.
 '''
 country_rfi = data['Customer Address Country'].value_counts()
 country_rfi.plot(kind='bar', title='RFIs by Customer Country')
@@ -100,8 +99,8 @@ Result: Customers from UK and UAE accounted for 50% of all RFIs
 '''
 
 '''
-5. Geographic Patterns:
-Analyzed RFIs by CUSTOMER ADDRESS COUNTRY and RECIPIENT COUNTRY to identify regions with higher scrutiny.
+5. Geographic Patterns - RECIPIENT COUNTRY:
+Analyzed RFIs by RECIPIENT COUNTRY to identify regions with higher scrutiny.
 '''
 country_rfi = data['Recipient Country'].value_counts()
 country_rfi.plot(kind='bar', title='RFIs by Recipient Country')
@@ -124,57 +123,16 @@ Result: Business accounts were involved in 60% of RFIs, despite representing onl
 '''
 
 '''
-7. Transaction Purpose Analysis:
-Assessed RFIs by TRANSACTION PURPOSE to determine high-risk transaction categories.
-
-'''
-purpose_rfi = data['Transaction Purpose'].value_counts()
-purpose_rfi.plot(kind='barh', title='RFIs by Transaction Purpose')
-plt.show()
-
-'''
-Result: "Investment" and "Payment Service" purposes accounted for the majority of flagged transactions, with "Investment" having the highest average transaction amount.
-'''
-'''
-8. Account Age and Risk:
-Correlated ACCOUNT CREATED DATE with RFIs to see if newer accounts are flagged more frequently.
-'''
-
-data['Account created date'] = pd.to_datetime(data['Account created date'])
-data['Account Age (Years)'] = (pd.to_datetime('today') - data['Account created date']).dt.days / 365
-sns.histplot(data=data, x='Account Age (Years)', hue='Transfer Status', kde=True)
-plt.title('Account Age and Suspension Risk')
-plt.show()
-
-'''
-Result: Accounts less than one year old were twice as likely to be flagged compared to older accounts, suggesting higher risks associated with newer users.
-'''
-'''
-9. Cumulative RFI Trends Over Time:
-Visualized RFIs over time to detect seasonal or periodic spikes.
-'''
-data['Account created date'] = pd.to_datetime(data['Account created date'])
-time_series = data.groupby(data['Account created date'].dt.to_period('M')).size()
-time_series.plot(kind='line', title='Monthly RFI Trends')
-plt.xlabel('Years')
-plt.ylabel('Number of RFIs')
-plt.show()
-
-'''
-Result: RFIs showed a significant spike in Q4, likely due to end-of-year compliance reviews.
-'''
-
-'''
-Suspended Transactions and Amounts:**
+7. Suspended Transactions and Amounts:**
 To examine whether transaction amounts influenced suspensions, I used a boxplot visualization.
-
+'''
 sns.boxplot(x='Transfer Status', y='Amount (USD)', data=data)
 plt.title('Transaction Amounts by Transfer Status')
 plt.show()
 
+'''
 Result: Suspended transactions tended to involve higher amounts, which could indicate a correlation between transaction size and risk.
 '''
-
 
 ########################################################################################################################
 
