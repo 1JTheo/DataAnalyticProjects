@@ -124,16 +124,22 @@ Result: Business accounts were involved in 60% of RFIs, despite representing onl
 
 '''
 7. Suspended Transactions and Amounts:**
-To examine whether transaction amounts influenced suspensions, I used a boxplot visualization.
+To examine whether transaction amounts influenced suspensions.
 '''
-sns.boxplot(x='Transfer Status', y='Amount (USD)', data=data)
-plt.title('Transaction Amounts by Transfer Status')
+# Plot average transaction amount by transfer status
+# # Aggregate data for bar chart
+transfer_status_summary = data.groupby('Transfer Status')['Amount (USD)'].agg(['mean', 'sum']).reset_index()
+
+plt.figure(figsize=(10, 6))
+plt.bar(transfer_status_summary['Transfer Status'], transfer_status_summary['mean'], color=['blue', 'red'])
+plt.title('Average Transaction Amount by Transfer Status')
+plt.xlabel('Transfer Status')
+plt.ylabel('Average Transaction Amount (USD)')
 plt.show()
 
 '''
 Result: Suspended transactions tended to involve higher amounts, which could indicate a correlation between transaction size and risk.
 '''
-
 ########################################################################################################################
 
 ### Step 3: Visualization in Tableau
@@ -155,7 +161,6 @@ In Tableau, I created the following dashboards:
 These visualizations provided actionable insights and highlighted key patterns in the data.
 
 ---
-
 Step 4: Findings and Recommendations
 
 Key Trends Identified:
