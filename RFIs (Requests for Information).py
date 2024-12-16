@@ -128,7 +128,19 @@ Indicates Business accounts were involved in 59.26% of RFIs, compared to 40.74% 
 '''
 
 '''
-7. Suspended Transactions and Amounts:
+7. Account Type Trends:
+Investigated differences in RFIs between business and personal accounts.
+'''
+account_type_rfi = data.groupby('Account type')['Transaction ID'].count()
+account_type_rfi.plot(kind='pie', autopct='%1.1f%%', title='RFIs by Account Type')
+plt.show()
+'''
+Key Trends Identified:
+Indicates Business accounts were involved in 59.26% of RFIs, compared to 40.74% Personal account. This suggests higher scrutiny for business accounts
+'''
+
+'''
+8. Suspended Transactions and Amounts:
 To examine whether transaction amounts influenced suspensions.
 '''
 # Plot average transaction amount by transfer status
