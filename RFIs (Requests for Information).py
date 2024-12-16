@@ -8,9 +8,7 @@ Created on Sat Dec 14 08:48:50 2024
 ### Take-Home Assignment Solution
 ### Task: Analyze the dataset of RFIs (Requests for Information) and summarize findings, identify trends, and suggest actionable steps.
 
-
 ### Step 1: Data Loading and Inspection
-
 '''
 To begin my analysis, I loaded the dataset into Python using the pandas library. This allowed me to efficiently clean and explore the data.
 python
@@ -39,7 +37,8 @@ plt.xlabel('RFI Theme')
 plt.ylabel('RFI')
 plt.show()
 '''
-Result: AML/CTF and sanctions are distributed evenly accross all board. However, sanctions accounts for 56.97% of RFIs, while AML/CTF RFIs made up the remaining 43.2135% if account status-(Active) is considered, suggesting a focus area for further investigation.
+Key Trends Identified:
+RFI (AML/CTF and sanctions) are distributed evenly accross all board. However, Sanctions-related RFI accounts for 56.97% of RFIs, while AML/CTF- related RFIs makes up the remaining 43.2135% if active accounts alone are considered, suggesting a focus area for further investigation.
 '''
 
 '''
@@ -56,7 +55,8 @@ partner_rfi = data.groupby('Partner bank')['Transaction ID'].count()
 partner_rfi.plot(kind='pie', autopct='%1.1f%%', title='RFIs by Partner Bank')
 plt.show()
 '''
-Result: This result into bank A and B responsible for 67.901% Overall RFIs reports/suspension and 66% of suspension considering (active accounts), warranting a deeper dive into their transaction patterns.
+Key Trends Identified:
+Indicates Bank A and B are responsible for 67.901% Overall RFIs reports/suspension and 66% of suspension considering (active accounts alone), warranting a deeper dive into their transaction patterns.
 '''
 
 '''
@@ -82,7 +82,8 @@ plt.legend(title='Current Transfer Status', loc='upper right')
 plt.show()
 
 '''
-Result: Accounts with prior suspensions were 78.26% more likely to receive new RFIs overall and 94.12% considering (active accounts), highlighting the importance of monitoring repeat offenders.
+Key Trends Identified:
+Indicates/Confirms accounts with prior suspensions were 78.26% more likely to receive new RFIs overall and 94.12% more likely to receive new RFIs when considering (active accounts alone), highlighting the importance of monitoring repeat offenders.
 '''
 
 '''
@@ -95,7 +96,8 @@ plt.xlabel('Customer Address Country')
 plt.ylabel('Number of RFIs')
 plt.show()
 '''
-Result: Customers from UK and UAE accounted for 50% of all RFIs
+Key Trends Identified:
+Indicates on average, Customers from countries Germany to UK accounted for the high RFI flags, with UK and UAE ranking the highest. 
 '''
 
 '''
@@ -107,8 +109,10 @@ country_rfi.plot(kind='bar', title='RFIs by Recipient Country')
 plt.xlabel('Recipient Address Country')
 plt.ylabel('Number of RFIs')
 plt.show()
+
 '''
-Result:: Recipients in UK and Japan had a disproportionately high number of flagged transactions.
+Key Trends Identified:
+Indicates on average, Recipient across between Switzerland to UK accounted for the high RFI flags, with UK and Japan ranking the highest. 
 '''
 
 '''
@@ -119,11 +123,12 @@ account_type_rfi = data.groupby('Account type')['Transaction ID'].count()
 account_type_rfi.plot(kind='pie', autopct='%1.1f%%', title='RFIs by Account Type')
 plt.show()
 '''
-Result: Business accounts were involved in 60% of RFIs, despite representing only 40% of the customer base. This suggests higher scrutiny for business accounts
+Key Trends Identified:
+Indicates Business accounts were involved in 59.26% of RFIs, compared to 40.74% Personal account. This suggests higher scrutiny for business accounts
 '''
 
 '''
-7. Suspended Transactions and Amounts:**
+7. Suspended Transactions and Amounts:
 To examine whether transaction amounts influenced suspensions.
 '''
 # Plot average transaction amount by transfer status
@@ -153,18 +158,15 @@ data.to_csv('processed_data.csv', index=False)
 #data2.to_excel('blogme_clean.xlsx', sheet_name = 'blogmedata', index=False)
 
 '''
-In Tableau, I created the following dashboards:
-- Bar Chart: Showing RFIs by partner bank.
-- Heatmap: Visualizing the relationship between `RFI THEME` and `CUSTOMER ADDRESS COUNTRY`.
-- Timeline Trends in account creation dates versus RFIs.
+All displayed chart are from Tableau. Tableau present clearer and more relatable chart.Albeit when code is run it produces similar chart.
 
-These visualizations provided actionable insights and highlighted key patterns in the data.
+Tableau visualizations tool provide actionable insights and highlighted key patterns in the data.
 
 ---
 Step 4: Findings and Recommendations
 
 Key Trends Identified:
-1. AML/CTF concerns are the most common RFI theme.
+1. RFI concerns (AML/CTF and Sanction concerns are the most common RFI theme.
 2. A small number of partner banks account for the majority of RFIs.
 3. Larger transaction amounts are more likely to be suspended.
 4. Accounts with prior suspensions are at higher risk of further investigation.
