@@ -223,9 +223,8 @@ Tableau visualizations tool provide actionable insights and highlighted key patt
 
 ---
 Step 4 :  Recommendations
-
 In General:
-1. We need engage with partner banks submitting the most RFIs to understand their concerns and improve processes and streamline our compliance protocols accordingly.
+We need engage with partner banks submitting the most RFIs to understand their concerns and improve processes and streamline our compliance protocols accordingly.
 
 I believe these insights and recommendations will support Wise in enhancing its financial crime prevention strategies while improving operational efficiency. Please find the Python code, Tableau visualizations, and summary PDF attached for your review.
 
