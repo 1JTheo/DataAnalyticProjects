@@ -96,8 +96,8 @@ plt.xlabel('Customer Address Country')
 plt.ylabel('Number of RFIs')
 plt.show()
 '''
-Key Trends Identified:
-Indicates on average, Customers from countries Germany to UK accounted for the high RFI flags, with UK and UAE ranking the highest. 
+Key Trends Identified: Customers from certain countries experience higher scrutiny.
+The chart above indicates on average, Customers from countries Germany to UK accounted for the high RFI flags, with UK and UAE ranking the highest. 
 '''
 
 '''
@@ -111,8 +111,8 @@ plt.ylabel('Number of RFIs')
 plt.show()
 
 '''
-Key Trends Identified:
-Indicates on average, Recipient across between Switzerland to UK accounted for the high RFI flags, with UK and Japan ranking the highest. 
+Key Trends Identified: recipients from certain countries experience higher scrutiny.
+The chart above, Indicates on average, recipient across between Switzerland to UK accounted for the high RFI flags, with UK and Japan ranking the highest. 
 '''
 
 '''
@@ -123,8 +123,8 @@ account_type_rfi = data.groupby('Account type')['Transaction ID'].count()
 account_type_rfi.plot(kind='pie', autopct='%1.1f%%', title='RFIs by Account Type')
 plt.show()
 '''
-Key Trends Identified:
-Indicates Business accounts were involved in 59.26% of RFIs, compared to 40.74% Personal account. This suggests higher scrutiny for business accounts
+Key Trends Identified: Business accounts are flagged more frequently than personal accounts.
+In the chart above, Business accounts were involved in 59.26% of RFIs, compared to 40.74% Personal account. This suggests higher scrutiny for business accounts
 '''
 
 '''
@@ -135,8 +135,8 @@ account_Entity_rfi = data.groupby('RFI entity')['Transaction ID'].count()
 account_Entity_rfi.plot(kind='pie', autopct='%1.1f%%', title='RFIs by RFI Entity')
 plt.show()
 '''
-Key Trends Identified:
-Indicates Recipient were involved in 56.79% of RFIs, compared to 43.21% Wise customer. This suggests higher scrutiny for Recipients
+Key Trends Identified: 
+In the chart above, recipient were involved in 56.79% of RFIs, compared to 43.21% Wise customer. This suggests higher scrutiny for Recipients
 '''
 
 '''
@@ -163,12 +163,12 @@ In the chart above, suspended transactions considering on Active account tended 
 ### Step 3: Visualization in Tableau
 
 '''
-After cleaning and analyzing the data in Python, I exported the processed data for visualization in Tableau.
-'''
+No data cleaning or export necessary
 
 data.to_csv('processed_data.xlsx', index=False)
 data.to_csv('processed_data.csv', index=False)
-#data2.to_excel('blogme_clean.xlsx', sheet_name = 'blogmedata', index=False)
+data2.to_excel('blogme_clean.xlsx', sheet_name = 'blogmedata', index=False)
+'''
 
 '''
 All displayed chart are from Tableau. Tableau present clearer and more relatable chart.Albeit when code is run it produces similar chart.
@@ -176,23 +176,14 @@ All displayed chart are from Tableau. Tableau present clearer and more relatable
 Tableau visualizations tool provide actionable insights and highlighted key patterns in the data.
 
 ---
-Step 4: Findings and Recommendations
-
-Key Trends Identified:
-1. RFI concerns (AML/CTF and Sanction concerns are the most common RFI theme.
-2. A small number of partner banks account for the majority of RFIs.
-3. Larger transaction amounts are more likely to be suspended.
+Step 4 :  Recommendations
 
 Suggested Next Steps:
 1. Engage with partner banks submitting the most RFIs to understand their concerns and improve processes.
 2. Implement stricter monitoring protocols for high-value transactions to mitigate risk.
 3. Develop a focused review framework for accounts with previous suspensions.
 4. Strengthen internal controls around AML/CTF processes to address recurring themes.
-5. Accounts with prior suspensions are at higher risk of further investigation.
-6. Customers and recipients from certain countries (e.g., Country A, Country C) experience higher scrutiny.
-7. Business accounts are flagged more frequently than personal accounts.
-8. Newer accounts are more likely to receive RFIs, particularly in the first year.
-9. A few repeat offenders contribute disproportionately to RFIs.
+
 
 I believe these insights and recommendations will support Wise in enhancing its financial crime prevention strategies while improving operational efficiency. Please find the Python code, Tableau visualizations, and summary PDF attached for your review.
 
