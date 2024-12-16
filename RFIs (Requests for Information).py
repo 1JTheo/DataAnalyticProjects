@@ -46,11 +46,11 @@ Result: AML/CTF and sanctions are distributed evenly accross all board. However,
 2. Partner Banks Generating RFIs:
 I grouped data by `PARTNER BANK` to understand which banks submitted the highest number of RFIs.
 '''
-partner_rfi = data.groupby('Partner bank')['Transaction ID'].count()
-partner_rfi.plot(kind='bar', title='RFIs by Partner Bank')
-plt.xlabel('Partner Bank')
-plt.ylabel('Number of RFIs')
-plt.show()
+#partner_rfi = data.groupby('Partner bank')['Transaction ID'].count()
+#partner_rfi.plot(kind='bar', title='RFIs by Partner Bank')
+#plt.xlabel('Partner Bank')
+#plt.ylabel('Number of RFIs')
+#plt.show()
 
 partner_rfi = data.groupby('Partner bank')['Transaction ID'].count()
 partner_rfi.plot(kind='pie', autopct='%1.1f%%', title='RFIs by Partner Bank')
@@ -63,11 +63,27 @@ Result: This result into bank A and B responsible for 67.901% Overall RFIs repor
 3. Impact of Previous Suspensions:**
 I analyzed accounts with a history of suspensions to determine whether they were more likely to be flagged.
 '''
-previous_suspensions = data['Previous Suspensions'].value_counts()
-print(previous_suspensions)
+#previous_suspensions = data['Previous Suspensions'].value_counts()
+#print(previous_suspensions)
+# Group by 'PREVIOUS SUSPENSIONS' and 'TRANSFER STATUS' to see the comparison
+suspension_comparison = pd.crosstab(data['Previous Suspensions '], data['Transfer Status'], margins=True)
+print(suspension_comparison)
+
+# Visualizing the comparison with a bar chart
+suspension_comparison.drop(index='All', columns='All').plot(
+    kind='bar',
+    stacked=True,
+    figsize=(10, 6),
+    title='Comparison of Previous Suspensions and Current Transfer Status'
+)
+plt.xlabel('Previous Suspension Status')
+plt.ylabel('Number of Accounts')
+plt.legend(title='Current Transfer Status', loc='upper right')
+plt.show()
+
+
 '''
-Result: Accounts previously suspended showed a significantly higher likelihood of receiving new RFIs, emphasizing the need for enhanced monitoring.
-Result: Accounts with prior suspensions were three times more likely to receive new RFIs, highlighting the importance of monitoring repeat offenders.
+Result: Accounts with prior suspensions were 78.26% more likely to receive new RFIs overall and 94.12% considering (active accounts), highlighting the importance of monitoring repeat offenders.
 '''
 
 '''
