@@ -39,6 +39,10 @@ plt.show()
 '''
 Key Trends Identified:
 RFI (AML/CTF and sanctions) are distributed evenly accross all board. However, Sanctions-related RFI accounts for 56.97% of RFIs, while AML/CTF- related RFIs makes up the remaining 43.2135% if active accounts alone are considered, suggesting a focus area for further investigation.
+
+Suggested Next Steps:
+The is need to review our Sanction policies to see if we are uptodate. This entails meeting with the right team/stakeholder. And then passing to senior management for 
+for approval.
 '''
 
 '''
@@ -57,6 +61,11 @@ plt.show()
 '''
 Key Trends Identified:
 Indicates Bank A and B are responsible for 67.901% Overall RFIs reports/suspension and 66% of suspension considering (active accounts alone), warranting a deeper dive into their transaction patterns.
+
+Suggested Next Steps:
+We need to engage with partner banks submitting the most RFIs to understand their concerns and improve processes.
+Sometimes after perform our due diligence as company (Analyze transaction routes), with good reason awe can reroute,
+payments through less risky corridors or intermediaries to minimize RFIs flags.
 '''
 
 '''
@@ -84,6 +93,12 @@ plt.show()
 '''
 Key Trends Identified: Accounts with prior suspensions are at higher risk of further investigation.
 In the chart above, accounts with prior suspensions were 78.26% more likely to receive new RFIs overall and 94.12% more likely to receive new RFIs when considering (active accounts alone), highlighting the importance of monitoring repeat offenders.
+
+Suggested Next Steps:
+Develop a focused review framework for accounts with previous suspensions, such as;
+Establish a dedicated risk category for accounts with prior suspensions and apply enhanced transaction monitoring protocols.
+Conduct periodic reviews of accounts with prior suspensions to reassess their risk and determine if continued enhanced monitoring is necessary.(E.g Wise BRC review model).
+Work closely with internal compliance and fraud detection teams to develop tailored monitoring rules for previously suspended accounts.
 '''
 
 '''
@@ -98,6 +113,13 @@ plt.show()
 '''
 Key Trends Identified: Customers from certain countries experience higher scrutiny.
 The chart above indicates on average, Customers from countries Germany to UK accounted for the high RFI flags, with UK and UAE ranking the highest. 
+
+Suggested Next Steps:
+Implement an enhanced due diligence (EDD) process for customers from countries flagged as high-risk.
+Adopt a risk-based approach to monitor transactions from high-scrutiny countries.
+Partner with relevant team in wise/ compliance expert in the flagged regions to understand local regulations and practices.
+Collaborate with regulators/Partner banks to understand specific concerns associated with flagged countries.
+Worst Case scenario, temporarily suspend that transaction route till we figure out that the is to mitigate riske for Wise
 '''
 
 '''
@@ -113,6 +135,13 @@ plt.show()
 '''
 Key Trends Identified: recipients from certain countries experience higher scrutiny.
 The chart above, Indicates on average, recipient across between Switzerland to UK accounted for the high RFI flags, with UK and Japan ranking the highest. 
+
+Suggested Next Steps:
+Implement an enhanced due diligence (EDD) process for customers from countries flagged as high-risk.
+Adopt a risk-based approach to monitor transactions from high-scrutiny countries.
+Partner with relevant team in wise/ compliance expert in the flagged regions to understand local regulations and practices.
+Collaborate with regulators/Partner banks to understand specific concerns associated with flagged countries.
+Worst Case scenario, temporarily suspend that transaction route till we figure out that the is to mitigate riske for Wise
 '''
 
 '''
@@ -125,6 +154,12 @@ plt.show()
 '''
 Key Trends Identified: Business accounts are flagged more frequently than personal accounts.
 In the chart above, Business accounts were involved in 59.26% of RFIs, compared to 40.74% Personal account. This suggests higher scrutiny for business accounts
+
+Suggested Next Steps:
+We need to work with relevant team to review/revise our internal RFI Policies. Majorly our AML policies as we have high AML/CTF flags of our business account.
+Introduce stricter onboarding and ongoing due diligence processes tailored to business accounts. 
+Analyze business accounts by industry or sector and assign risk levels based on sector-specific attributes- In DD, business are onbaorded with different level of scrutiny based on Wise internal AML risk score, that I believe was generated due data's like this
+Establish tailored transaction monitoring rules for business accounts, focusing on abnormal patterns such as unusually high transaction amounts or frequencies. (VELOCITY REVIEW) in Wise
 '''
 
 '''
@@ -136,7 +171,12 @@ account_Entity_rfi.plot(kind='pie', autopct='%1.1f%%', title='RFIs by RFI Entity
 plt.show()
 '''
 Key Trends Identified: 
-In the chart above, recipient were involved in 56.79% of RFIs, compared to 43.21% Wise customer. This suggests higher scrutiny for Recipients
+In the chart above, recipient were involved in 56.79% of RFIs, compared to 43.21% Wise customer. This suggests higher scrutiny for Recipients.
+
+Suggested Next Steps:
+Tighten due diligence processes for transactions sent to high-risk regions or countries with elevated recipient flags.
+Conduct periodic reviews of frequently flagged recipients to identify common patterns or risks, such as repeated involvement in high-value or suspicious transactions.
+
 '''
 
 '''
@@ -157,6 +197,12 @@ plt.show()
 '''
 Key Trends Identified: Larger transaction amounts are more likely to be suspended.
 In the chart above, suspended transactions considering on Active account tended to involve higher amounts, which could indicate a correlation between transaction size and risk.
+
+Suggested Next Steps:
+Introduce tiered thresholds for monitoring high-value transactions based on risk levels.
+Require enhanced due diligence (EDD) for larger transactions- Like the creating of HAT TEAM and the HVT team.
+Adjust transaction limits dynamically based on the customer's risk profile.
+Provide clear guidance to customers on the documents required for high-value transactions.
 '''
 ########################################################################################################################
 
@@ -178,12 +224,8 @@ Tableau visualizations tool provide actionable insights and highlighted key patt
 ---
 Step 4 :  Recommendations
 
-Suggested Next Steps:
-1. Engage with partner banks submitting the most RFIs to understand their concerns and improve processes.
-2. Implement stricter monitoring protocols for high-value transactions to mitigate risk.
-3. Develop a focused review framework for accounts with previous suspensions.
-4. Strengthen internal controls around AML/CTF processes to address recurring themes.
-
+In General:
+1. We need engage with partner banks submitting the most RFIs to understand their concerns and improve processes and streamline our compliance protocols accordingly.
 
 I believe these insights and recommendations will support Wise in enhancing its financial crime prevention strategies while improving operational efficiency. Please find the Python code, Tableau visualizations, and summary PDF attached for your review.
 
